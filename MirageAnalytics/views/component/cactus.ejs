@@ -1,0 +1,57 @@
+<%
+let tokenItemUrl = cactus.id;
+if (trait_normalization == 1) {
+  tokenItemUrl = cactus.id+'?trait_normalization=1';
+}
+%>
+<a href="/<%= item_path_name %>/<%= tokenItemUrl %>" style="text-decoration: none;">
+  <div>
+    <% if (cactus.rarity_rank) { %>
+    <h3 class="cactus-rank">Rank #<%= cactus.rarity_rank %></h3>
+    <% } %>
+    <% if (cactus.similar) { %>
+    <h3 class="cactus-similar-score">Similar Score #<%= cactus.similar.toFixed(2) %></h3>
+    <% } %>
+    <% if (content_image_is_video) { %>
+    <video class="cactus-avatar" style="<% if (content_image_frame=='rectangle') { %> border-radius: 10px; <% } %>" src="<%= cactus.image.replace('ipfs://', 'https://ipfs.io/ipfs/'); %>" alt="<%= cactus.name %>" /></video>
+    <% } else { %>
+    <img class="cactus-avatar" style="<% if (content_image_frame=='rectangle') { %> border-radius: 10px; <% } %>" src="<%= cactus.image.replace('ipfs://', 'https://ipfs.io/ipfs/'); %>" alt="<%= cactus.name %>" />
+    <% } %>
+    <div class="cactus-info text-center">
+      <span><%= cactus.name %></span>
+      <svg 
+        viewBox="0 0 128 20" 
+        class="shadow"
+        style="transform: 
+          <% if (cactus.id % 4 == 0) { %> 
+          rotate(2.10582deg) 
+          <% } else if (cactus.id % 4 == 1) { %> 
+          rotate(-1.55956deg) 
+          <% } else if (cactus.id % 4 == 2) { %> 
+          rotate(-2.11894deg) 
+          <% } else { %> 
+          rotate(-0.804652deg) 
+          <% } %>
+          scale(1.15);"
+        >
+        <path d="M18.659464617674463 5.886049064536063L104.37818072626806 10.101969738149581L113.93276709105373 19.132353769878222L21.88176277928382 18.182120128591457L18.659464617674463 5.886049064536063Z" style="fill: var(--contrast);"></path>
+      </svg>
+      <svg 
+        viewBox="0 0 128 20" 
+        style="transform: 
+          <% if (cactus.id % 4 == 0) { %> 
+          rotate(2.10582deg) 
+          <% } else if (cactus.id % 4 == 1) { %> 
+          rotate(-1.55956deg) 
+          <% } else if (cactus.id % 4 == 2) { %> 
+          rotate(-2.11894deg) 
+          <% } else { %> 
+          rotate(-0.804652deg) 
+          <% } %>
+          scale(1.15);"
+        >
+        <path d="M18.659464617674463 5.886049064536063L104.37818072626806 10.101969738149581L113.93276709105373 19.132353769878222L21.88176277928382 18.182120128591457L18.659464617674463 5.886049064536063Z" style="fill: var(--primary);"></path>
+      </svg>
+    </div>
+  </div>
+</a>
