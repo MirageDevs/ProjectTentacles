@@ -1,7 +1,0 @@
-{
-    "name": "Cool Rarity",
-    "description": "Cool Rarity is an open source package for easy rarity score calculation with ERC721 NFT metadata collection.",
-    "repository": "https://github.com/fukuball/rarity-analyser",
-    "logo": "https://onedaycactus-rarity-tool.herokuapp.com/images/profile.png",
-    "keywords": ["NFT", "ERC721", "rarity", "cactuscape", "OneDaycactus"]
-  }
